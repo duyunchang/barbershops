@@ -1,0 +1,9 @@
+<xml>
+<ToUserName><![CDATA[粉丝号]]></ToUserName>
+<FromUserName><![CDATA[公众号]]></FromUserName>
+<CreateTime>1460536576</CreateTime>
+<MsgType><![CDATA[image]]></MsgType>
+<Image>
+<MediaId><![CDATA[gyci5oxxxxxxv3cOL]]></MediaId>
+</Image>
+</xml>
