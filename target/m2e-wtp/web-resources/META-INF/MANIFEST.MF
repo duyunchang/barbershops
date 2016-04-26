@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: BarberShop
 Implementation-Version: 1.0
-Built-By: PC
+Built-By: Administrator
 Implementation-Vendor-Id: org.com.example
-Build-Jdk: 1.8.0_102
+Build-Jdk: 1.8.0_31
 Implementation-URL: http://projects.spring.io/spring-boot/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
