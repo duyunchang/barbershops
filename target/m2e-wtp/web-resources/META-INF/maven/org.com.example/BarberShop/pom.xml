@@ -15,9 +15,6 @@
 		<url>http://www.spring.io</url>
 	</organization>
 
-
-
-
 	<properties>
         <java-version>1.8</java-version>    
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> 
@@ -38,23 +35,11 @@
 	    <version>1.5.2.RELEASE</version>
 	</parent>
 
-
-
 	<dependencies>
 	<!-- Spring Boot web依赖 -->
 		<dependency>
        		<groupId>org.springframework.boot</groupId>
         	<artifactId>spring-boot-starter-web</artifactId>
-        	<!-- 如果要打war需要添加exclusions -->
-        	<!-- 如果要打war需要添加exclusions，目的是移除对嵌入式Tomcat的依赖,这样打出的WAR包中，在lib目录下才不会包含Tomcat相关的JAR包，否则将会出现启动错误 -->
-			 <!-- 加上去本地报错，不加打包多3个tomcat文件报错;所有就注释掉,然后打包把3个tomcat文件删掉
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>				
-				</exclusion>
-			</exclusions>
-		    -->		
     	</dependency>
     		<!-- 如果要打war需要添加servlet-api的依赖 -->
     		<!-- 在这里将scope属性设置为provided，这样在最终形成的WAR中不会包含这个JAR包，因为Tomcat或Jetty等服务器在运行时将会提供相关的API类。此时，执行mvn 
@@ -64,19 +49,19 @@
 			  <artifactId>tomcat-servlet-api</artifactId>
 			  <version>7.0.52</version>			
 			  <scope>provided</scope>
+		</dependency>	
+		 <dependency>
+			  <groupId>org.springframework.boot</groupId>
+			  <artifactId>spring-boot-starter-tomcat</artifactId>	
+			  <scope>provided</scope>				
 		</dependency>
-		 
+		
     	<!-- 只需引入spring-boot-devtools 即可实现热部署 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-devtools</artifactId>
             </dependency>
- 
- 
- 
- 
- 
- 
+
             <!-- Json包 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -102,7 +87,20 @@
                 <artifactId>spring-boot-starter-test</artifactId>
                 <scope>test</scope>
             </dependency>
-			
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-redis</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>net.minidev</groupId>
+				<artifactId>json-smart</artifactId>
+				<version>RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jsoup</groupId>
+				<artifactId>jsoup</artifactId>
+				<version>1.10.2</version>
+			</dependency>
 			<dependency>
 			    <groupId>junit</groupId>
 			    <artifactId>junit</artifactId>
@@ -135,21 +133,21 @@
 			<artifactId>hsqldb</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		  <!-- Spring Boot JDBC -->
-		   
+		  <!-- Spring Boot JDBC -->		   
          <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
           </dependency>
 		  
 
-		  <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+		<!-- 
 		<dependency>
 		    <groupId>org.apache.httpcomponents</groupId>
 		    <artifactId>httpclient</artifactId>
 		    <version>4.5.3</version>
 		</dependency>
-  
+   		 -->
 		<!-- 添加对jsp视图解析的支持 -->
 		<!-- 
         <dependency>
@@ -180,7 +178,6 @@
 		    <artifactId>commons-lang</artifactId>
 		    <version>2.6</version>
 		</dependency>
- 		<!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib -->
 		<dependency>
 		    <groupId>net.sf.json-lib</groupId>
 		    <artifactId>json-lib</artifactId>
@@ -221,7 +218,8 @@
 			    </execution>
 		        </executions>
 		        -->
-            </plugin>			 
+            </plugin>	
+           		 
 		</plugins>
 	</build>
 

@@ -28,12 +28,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableTransactionManagement//开启注解事务管理，等同于xml配置文件中的 <tx:annotation-driven />
-@ImportResource(locations={"classpath:app-*.xml"})//读取额外的xml配置文件
+//@ImportResource(locations={"classpath:app-*.xml"})//读取额外的xml配置文件
 //@Import({DynamicDataSourceRegister.class}) // 注册动态多数据源
-public class DataJpaApplication {
+public class Application {
 
 	public static void main(String[] args) throws Exception {
-		SpringApplication.run(DataJpaApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 	 
 }
