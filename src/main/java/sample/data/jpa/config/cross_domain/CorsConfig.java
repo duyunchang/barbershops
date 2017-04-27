@@ -1,4 +1,4 @@
-package sample.data.jpa.config;
+package sample.data.jpa.config.cross_domain;
 
 import org.springframework.context.annotation.Configuration;  
 import org.springframework.web.servlet.config.annotation.CorsRegistry;  

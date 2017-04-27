@@ -21,8 +21,15 @@ public class MyWebAppConfigurer  extends WebMvcConfigurerAdapter {
 
     @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-        configurer.defaultContentType(MediaType.TEXT_HTML)
-        .ignoreAcceptHeader(true);
+    	  configurer.favorPathExtension(true)
+          .favorParameter(false)
+          .ignoreAcceptHeader(false)
+          .useJaf(false)
+          .defaultContentType(MediaType.ALL);
+    	  
+    	
+//        configurer.defaultContentType(MediaType.TEXT_HTML)
+//        .ignoreAcceptHeader(true);
     }
 
     /*

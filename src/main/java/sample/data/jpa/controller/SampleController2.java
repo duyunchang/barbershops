@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -38,7 +39,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.undertow.servlet.spec.HttpServletResponseImpl;
+//import io.undertow.servlet.spec.HttpServletResponseImpl;
 
 import org.springframework.data.domain.*;
 import sample.data.jpa.domain.entity.customer;
@@ -54,6 +55,9 @@ public class SampleController2 {
 	
 	@Autowired
 	private CustomerService customerService;
+	
+	@Value("${sample.data.jpa.controller.ll}")
+	private String ll;
 
 	@RequestMapping(value ="/list")//,produces = MediaType.APPLICATION_JSON_VALUE
 	public List<customer> getStus(){
@@ -62,6 +66,10 @@ public class SampleController2 {
 		 //System.out.println( Math.abs(~2020));
 	     //System.out.println(JsonHelper.toJsonStr(customerService.getList()));
 	    return customerService.getList();
+	}
+	@RequestMapping("/ll")
+	public String getLl(){
+	    return ll;
 	}
 	@RequestMapping("/liststr")
 	public String getStuss(){

@@ -27,7 +27,7 @@ public class PageController {
     @RequestMapping(value = {"/","/index"})
     public String index(Map<String, Object> model){
         model.put("time", new Date());
-        model.put("message", "小单，你好！");
+        model.put("message", "hello，你好！");
 
         return "index";
     }

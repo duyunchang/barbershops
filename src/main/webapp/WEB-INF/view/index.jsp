@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>   
-    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript">               
         $().ready(function () {
             $("span").click(function () {

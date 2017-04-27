@@ -3,11 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>   
-    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript">               
         $().ready(function () {
             $("span").click(function () {
-                $.get("http://127.0.0.1:8090/stu/list", { cmd: 123 }, function (d) {
+                $.get("http://127.0.0.1:8888/stu/list", { cmd: 123 }, function (d) {
                 	//d=JSON.parse(JSON.stringify(d));
                     alert(typeof(d));
                     alert(d[0].name);
