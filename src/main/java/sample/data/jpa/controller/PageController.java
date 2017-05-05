@@ -1,16 +1,31 @@
 package sample.data.jpa.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import sample.data.jpa.domain.entity.customer;
+import sample.data.jpa.manager.CustomerJpaManager;
+import sample.data.jpa.service.CustomerService;
 
 @Controller
 public class PageController {
@@ -56,6 +71,30 @@ public class PageController {
         map.put("name", name);
         map.put("name1", name1);
         return map;
-    }   
+    } 
+    
+  
+    @Autowired
+    private CustomerService customerService;
+    
+    @RequestMapping(value = "/params")  
+    public Object getEntryByParams(@RequestParam(value = "name", defaultValue = "test") String name, 
+    		@RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size) {  
+         
+    	Sort sort = new Sort(Sort.Direction.DESC, "updateTime");  
+        Pageable pageable = new PageRequest(page, size, sort);  
+        return customerService.getList(name,pageable);      
+    }
+    
+    
+//    @RequestMapping(value = "/pagelist")
+//    public Page<customer> getEntryByPageable(@RequestParam(value = "page", defaultValue = "0") Integer page,
+//            @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
+//    		@PageableDefault(value = 15, sort = { "id" ,"updateTime"}, direction = Direction.DESC) Pageable pageable
+//    		) {
+//    	
+//    	
+//        return customerJpaManager.findAll(pageable);
+//    }
 
 }

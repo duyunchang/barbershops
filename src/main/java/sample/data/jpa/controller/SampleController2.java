@@ -50,64 +50,64 @@ import sample.data.jpa.util.JsonHelper;
 @EnableAutoConfiguration
 @RequestMapping("/stu")
 public class SampleController2 {
-	private static final Logger logger = LoggerFactory.getLogger(SampleController2.class);
-	
-	@Autowired
-	private CustomerService customerService;
-	
-	@Value("${sample.data.jpa.controller.ll}")
-	private String ll;
-
-	@RequestMapping(value ="/list")//,produces = MediaType.APPLICATION_JSON_VALUE
-	public List<customer> getStus(){
-		 //logger.info("第二个驱动...");
-		 //System.out.println( ~2020);
-		 //System.out.println( Math.abs(~2020));
-	     //System.out.println(JsonHelper.toJsonStr(customerService.getList()));
-	    return customerService.getList();
-	}
-	@RequestMapping("/ll")
-	public String getLl(){
-	    return ll;
-	}
-	@RequestMapping("/liststr")
-	public String getStuss(){
-	    return JsonHelper.toJsonStr(customerService.getList());
-	}
-	
-	@RequestMapping("/liststrem")
-	public String getStussem(){
-	    return JsonHelper.toJsonStr(customerService.getListem());
-	}
-	
-	/**
-    *
-    * @param page
-    * @param pageSize
-    * @return
-    */
-	
-//	 @ResponseBody  
-//	   public String Page(@RequestParam(value = "name", defaultValue = "") String name, @RequestParam(value = "page", defaultValue = "0") Integer page,
-//			   @RequestParam(value = "size", defaultValue = "15") Integer size) {  
-//	       Sort sort = new Sort(Sort.Direction.DESC, "id");  
-//	       Pageable pageable = new PageRequest(page, size, sort);  
-//	       Page<customer> pages=userDao.findByNameNot(name,pageable);  
-//	       Iterator<customer> it=pages.iterator();  
-//	       while(it.hasNext()){  
-//	           System.out.println("value:"+((customer)it.next()).getId());  
-//	       }  
-//	       return "success...login....";  
-//	   }
-	 
-   @RequestMapping(value = "/page", method = RequestMethod.GET)
-   public  List<customer> Page(
-           @RequestParam(value = "page", defaultValue = "0") Integer page,
-           @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,HttpServletRequest request) {
-	   logger.info("分页请求....");
-	   //Response.AddHeader("Access-Control-Allow-Origin", "*");
-	   List<customer> pageList = customerService.pageList(page, pageSize);
-       return pageList;
-   }
+//	private static final Logger logger = LoggerFactory.getLogger(SampleController2.class);
+//	
+//	@Autowired
+//	private CustomerService customerService;
+//	
+//	@Value("${sample.data.jpa.controller.ll}")
+//	private String ll;
+//
+//	@RequestMapping(value ="/list")//,produces = MediaType.APPLICATION_JSON_VALUE
+//	public List<customer> getStus(){
+//		 //logger.info("第二个驱动...");
+//		 //System.out.println( ~2020);
+//		 //System.out.println( Math.abs(~2020));
+//	     //System.out.println(JsonHelper.toJsonStr(customerService.getList()));
+//	    return customerService.getList();
+//	}
+//	@RequestMapping("/ll")
+//	public String getLl(){
+//	    return ll;
+//	}
+//	@RequestMapping("/liststr")
+//	public String getStuss(){
+//	    return JsonHelper.toJsonStr(customerService.getList());
+//	}
+//	
+//	@RequestMapping("/liststrem")
+//	public String getStussem(){
+//	    return JsonHelper.toJsonStr(customerService.getListem());
+//	}
+//	
+//	/**
+//    *
+//    * @param page
+//    * @param pageSize
+//    * @return
+//    */
+//	
+////	 @ResponseBody  
+////	   public String Page(@RequestParam(value = "name", defaultValue = "") String name, @RequestParam(value = "page", defaultValue = "0") Integer page,
+////			   @RequestParam(value = "size", defaultValue = "15") Integer size) {  
+////	       Sort sort = new Sort(Sort.Direction.DESC, "id");  
+////	       Pageable pageable = new PageRequest(page, size, sort);  
+////	       Page<customer> pages=userDao.findByNameNot(name,pageable);  
+////	       Iterator<customer> it=pages.iterator();  
+////	       while(it.hasNext()){  
+////	           System.out.println("value:"+((customer)it.next()).getId());  
+////	       }  
+////	       return "success...login....";  
+////	   }
+//	 
+//   @RequestMapping(value = "/page", method = RequestMethod.GET)
+//   public  List<customer> Page(
+//           @RequestParam(value = "page", defaultValue = "0") Integer page,
+//           @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,HttpServletRequest request) {
+//	   logger.info("分页请求....");
+//	   //Response.AddHeader("Access-Control-Allow-Origin", "*");
+//	   List<customer> pageList = customerService.pageList(page, pageSize);
+//       return pageList;
+//   }
    
 }

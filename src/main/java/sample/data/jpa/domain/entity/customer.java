@@ -17,16 +17,7 @@ public class customer implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 7693572823945401792L;
-//	private Long id;
-//	private String name;  //名字
-//	private String c_desc;  //客户信息描述
-//	private String pictureAddress; //图片地址
-//	private Date creatTime;   //创建时间
-//	private Date updateTime;  //更新时间
-//	
-//	private Integer isDelete;  //是否删除;1删除,2未删除
-//	private String updater;   //更新人
-//	private String creater;   //创建人
+
 	@Id
 	@GeneratedValue
 	@Column(name="id",nullable=false)
