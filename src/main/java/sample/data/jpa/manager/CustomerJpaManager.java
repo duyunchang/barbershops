@@ -16,4 +16,6 @@ public interface CustomerJpaManager extends JpaRepository<customer, Long> {
 
 	//实现分页功能  
 	Page<customer> findByIsDeleteNotAndNameLike(Integer isDelete,String name,Pageable pageable);  
+	//实现分页功能  
+	//Page<customer> findByIsDeleteNotAndNameLikeOrc_descLike(Integer isDelete,String name,Pageable pageable); 
 }

@@ -8,8 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-//@Entity
-//@Table(name="historyorderinfo")
+@Entity
+@Table(name="historyorderinfo")
 public class historyorderinfo implements Serializable {
 
 	/**

@@ -31,6 +31,8 @@ public class CustomerService  {
 //	     while(it.hasNext()){  
 //	         System.out.println("value:"+((customer)it.next()).getId());  
 //	     }  
+		 //pages=customerJpaManager.findByIsDeleteNotAndNameLikeOrc_descLike(1,name,pageable);  
+		 
 		return  pages;
 	}
 	
