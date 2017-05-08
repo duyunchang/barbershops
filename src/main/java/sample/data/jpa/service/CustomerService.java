@@ -31,9 +31,18 @@ public class CustomerService  {
 //	     while(it.hasNext()){  
 //	         System.out.println("value:"+((customer)it.next()).getId());  
 //	     }  
-		 //pages=customerJpaManager.findByIsDeleteNotAndNameLikeOrc_descLike(1,name,pageable);  
-		 
+		 String c_desc="dyc";
+		 pages=customerJpaManager.findByIsDeleteNotAndNameOrC_descLike(1,name,c_desc,pageable);  
 		return  pages;
+	}
+	@Transactional
+	public   List<customer> getListNames(String name,Pageable pageable){
+		name="xx1,xx2,xx3";
+		name="xx1";
+		String[] split = name.split(",");
+		
+		 List<customer> findByNameIn = customerJpaManager.findByNameIn(split,pageable);
+		return  findByNameIn;
 	}
 	
 	

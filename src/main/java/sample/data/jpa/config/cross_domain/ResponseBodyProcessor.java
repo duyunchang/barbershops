@@ -21,7 +21,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBody
  * 处理Spring默认加载好的类，在原有类上使用自定义类进行包装处理。
  *
  */
-@Configuration
+//@Configuration
 public class ResponseBodyProcessor extends WebMvcConfigurerAdapter implements InitializingBean {
 
     @Autowired

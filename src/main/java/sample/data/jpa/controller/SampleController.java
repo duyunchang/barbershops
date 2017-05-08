@@ -16,6 +16,7 @@
 
 package sample.data.jpa.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -40,14 +41,14 @@ import sample.data.jpa.service.CustomerService;
 @EnableAutoConfiguration
 @RequestMapping("/test")
 public class SampleController {
-//	private static final Logger logger = LoggerFactory.getLogger(SampleController.class);
-//	@Autowired
-//	private CustomerService customerService;
-//
-//	@RequestMapping("/list")
-//	public List<customer> getStus(){
-//		System.out.println("测试不可跨域....");
-//	    return customerService.getList();
-//	}
+	private static final Logger logger = LoggerFactory.getLogger(SampleController.class);
+	@Autowired
+	private CustomerService customerService;
+
+	@RequestMapping("/list")
+	public List<customer> getStus(){
+		System.out.println("测试不可跨域....");
+	    return new ArrayList<customer>();
+	}
     
 }

@@ -11,11 +11,17 @@ import sample.data.jpa.domain.entity.customer;
 
 public interface CustomerJpaManager extends JpaRepository<customer, Long> {
 
+	
+	public List<customer> findByNameIn(String[]   name,Pageable pageable);
+	
 	@Query("FROM customer l where l.isDelete!=1  ORDER BY l.updateTime ASC")
 	public List<customer> findAll1();
 
 	//实现分页功能  
 	Page<customer> findByIsDeleteNotAndNameLike(Integer isDelete,String name,Pageable pageable);  
 	//实现分页功能  
-	//Page<customer> findByIsDeleteNotAndNameLikeOrc_descLike(Integer isDelete,String name,Pageable pageable); 
+	@Query("FROM customer l where l.isDelete!=?1 and (name like %?2% or c_desc like %?3%)")
+	Page<customer> findByIsDeleteNotAndNameOrC_descLike(Integer isDelete,String name,String c_desc,Pageable pageable); 
+	
+	
 }

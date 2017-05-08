@@ -219,35 +219,35 @@ public class DateHelper {
 		return calendar;
 	}
 
-	/**
-	 * 计算传入的日期是星期几
-	 * 
-	 * @param date
-	 *            String
-	 * @return int
-	 * @throws ParseException
-	 */
-	public static int getDayOfWeek(String date) throws ParseException {
-		return DateHelper.convertToCalendar(date, "yyyy/MM/dd HH:mm:ss").get(
-				new GregorianCalendar().DAY_OF_WEEK);
-	}
-
-	/**
-	 * 判断传入的时间是否是周末(周六or周日)
-	 * 
-	 * @param date
-	 *            String 时间格式一定是yyyy-MM-dd HH:mm:ss
-	 * @return boolean
-	 */
-	public static boolean isWeekend(String date) throws ParseException {
-		Calendar calendar = new GregorianCalendar();
-		if ((DateHelper.getDayOfWeek(date) == calendar.SATURDAY)
-				|| (DateHelper.getDayOfWeek(date) == calendar.SUNDAY)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+//	/**
+//	 * 计算传入的日期是星期几
+//	 * 
+//	 * @param date
+//	 *            String
+//	 * @return int
+//	 * @throws ParseException
+//	 */
+//	public static int getDayOfWeek(String date) throws ParseException {
+//		return DateHelper.convertToCalendar(date, "yyyy/MM/dd HH:mm:ss").get(
+//				new GregorianCalendar().DAY_OF_WEEK);
+//	}
+//
+//	/**
+//	 * 判断传入的时间是否是周末(周六or周日)
+//	 * 
+//	 * @param date
+//	 *            String 时间格式一定是yyyy-MM-dd HH:mm:ss
+//	 * @return boolean
+//	 */
+//	public static boolean isWeekend(String date) throws ParseException {
+//		Calendar calendar = new GregorianCalendar();
+//		if ((DateHelper.getDayOfWeek(date) == calendar.SATURDAY)
+//				|| (DateHelper.getDayOfWeek(date) == calendar.SUNDAY)) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
 	
 	public static Integer getDateInt(){
 		Calendar c=Calendar.getInstance();
@@ -362,16 +362,19 @@ public class DateHelper {
 		}
 	}
 	
-	public static Date getTodayOrTomorrowTime(Date date ,boolean todayflag){
-		Calendar c=Calendar.getInstance();
-		c.setTime(date);
-		if(!todayflag){
-			c.set(Calendar.DATE, date.getDate()+1);
-		}
-		c.set(Calendar.HOUR_OF_DAY, 0);
-		c.set(Calendar.SECOND, 0);
-		c.set(Calendar.MINUTE, 0);
-		return c.getTime();
-	}
+//	public static Date getTodayOrTomorrowTime(Date date ,boolean todayflag){
+//		Calendar c=Calendar.getInstance();
+//		c.setTime(date);
+//		
+//		
+//		
+//		if(!todayflag){
+//			c.set(Calendar.DATE, date.getDate()+1);
+//		}
+//		c.set(Calendar.HOUR_OF_DAY, 0);
+//		c.set(Calendar.SECOND, 0);
+//		c.set(Calendar.MINUTE, 0);
+//		return c.getTime();
+//	}
 	
 }

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.ContentNegotiationConfi
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 
-@Configuration
+//@Configuration
 public class MyWebAppConfigurer  extends WebMvcConfigurerAdapter {
 
     private static final Logger logger = LoggerFactory.getLogger(MyWebAppConfigurer.class);

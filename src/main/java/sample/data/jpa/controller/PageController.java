@@ -32,36 +32,36 @@ public class PageController {
 
     private static final Logger log = LoggerFactory.getLogger(PageController.class);
 
-    /**
-     * 默认页<br/>
-     * @RequestMapping("/") 和 @RequestMapping 是有区别的
-     * 如果不写参数，则为全局默认页，加入输入404页面，也会自动访问到这个页面。
-     * 如果加了参数“/”，则只认为是根页面。
-     *
-     */
-    @RequestMapping(value = {"/","/index"})
-    public String index(Map<String, Object> model){
-        model.put("time", new Date());
-        model.put("message", "hello，你好！");
-
-        return "index";
-    }
-
-    /**
-     * 响应到JSP页面page1
-     *
-     * @return
-     * @author SHANHY
-     * @create  2016年1月5日
-     */
-    @RequestMapping("/page1")
-    public ModelAndView page1(){
-        log.info(">>>>>>>> PageController.page1");
-        // 页面位置 /WEB-INF/jsp/page/page.jsp
-        ModelAndView mav = new ModelAndView("page/page1");
-        mav.addObject("content", "hello");
-        return mav;
-    }
+//    /**
+//     * 默认页<br/>
+//     * @RequestMapping("/") 和 @RequestMapping 是有区别的
+//     * 如果不写参数，则为全局默认页，加入输入404页面，也会自动访问到这个页面。
+//     * 如果加了参数“/”，则只认为是根页面。
+//     *
+//     */
+//    @RequestMapping(value = {"/","/index"})
+//    public String index(Map<String, Object> model){
+//        model.put("time", new Date());
+//        model.put("message", "hello，你好！");
+//
+//        return "index";
+//    }
+//
+//    /**
+//     * 响应到JSP页面page1
+//     *
+//     * @return
+//     * @author SHANHY
+//     * @create  2016年1月5日
+//     */
+//    @RequestMapping("/page1")
+//    public ModelAndView page1(){
+//        log.info(">>>>>>>> PageController.page1");
+//        // 页面位置 /WEB-INF/jsp/page/page.jsp
+//        ModelAndView mav = new ModelAndView("page/page1");
+//        mav.addObject("content", "hello");
+//        return mav;
+//    }
 
     @RequestMapping("/testJson")
     @ResponseBody
@@ -85,6 +85,16 @@ public class PageController {
         Pageable pageable = new PageRequest(page, size, sort);  
         return customerService.getList(name,pageable);      
     }
+    
+    @RequestMapping(value = "/names")  
+    public Object getEntryByParams1(@RequestParam(value = "name", defaultValue = "test") String name, 
+    		@RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size) {  
+         
+    	Sort sort = new Sort(Sort.Direction.DESC, "updateTime");  
+        Pageable pageable = new PageRequest(page, size, sort);  
+        return customerService.getListNames(name,pageable);      
+    }
+    
     
     
 //    @RequestMapping(value = "/pagelist")
