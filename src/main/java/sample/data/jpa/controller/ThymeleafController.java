@@ -18,7 +18,24 @@ import sample.data.jpa.util.NeoProperties;
 @Controller
 public class ThymeleafController {
 	
-	@RequestMapping(value = {"/","/index"})
+	
+	 @RequestMapping(value = {"/","/hello"})
+	 public String hello11(Locale locale, Model model) {
+	   		model.addAttribute("greeting", "Hello!");
+
+	   		Date date = new Date();
+	   		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);        
+	   		String formattedDate = dateFormat.format(date);
+	   		model.addAttribute("currentTime", formattedDate);
+	   		model.addAttribute("title", "nnd");
+	   		
+	   		model.addAttribute("title", "nnd");
+	   		model.addAttribute("title", "nnd");
+
+	   		return "hello";
+	   	}
+	 
+	@RequestMapping("/index")
     public String index(Model model) {
         Person single = new Person("aa", 11);
         List<Person> people = new ArrayList<>();
@@ -47,19 +64,7 @@ public class ThymeleafController {
 		return "layout";
 	}
     
-    @RequestMapping("/hello")
-   	public String hello11(Locale locale, Model model) {
-   		model.addAttribute("greeting", "Hello!");
-
-   		Date date = new Date();
-   		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);        
-   		String formattedDate = dateFormat.format(date);
-   		model.addAttribute("currentTime", formattedDate);
-   		model.addAttribute("title", "nnd");
-   		
-
-   		return "hello";
-   	}
+   
     
     
     @Autowired
