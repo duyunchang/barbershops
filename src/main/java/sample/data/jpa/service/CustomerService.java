@@ -32,7 +32,7 @@ public class CustomerService  {
 //	         System.out.println("value:"+((customer)it.next()).getId());  
 //	     }  
 		 String c_desc="dyc";
-		 pages=customerJpaManager.findByIsDeleteNotAndNameOrC_descLike(1,name,c_desc,pageable);  
+		 //pages=customerJpaManager.findByIsDeleteNotAndNameOrC_descLike(1,name,c_desc,pageable);  
 		return  pages;
 	}
 	@Transactional
